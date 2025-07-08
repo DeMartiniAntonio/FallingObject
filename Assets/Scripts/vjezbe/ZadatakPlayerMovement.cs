@@ -4,36 +4,21 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class ZadatakPlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private int speed;
-    [SerializeField] private int score;
     [SerializeField] private int hp;
     [SerializeField] private int hpMax;
     [SerializeField] private int damage;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private GameObject vatra;
 
-    private void Start()
-    {
-        IncreseScore(0);
-        hpMax = 100;
-        hp = hpMax;
-    }
-
     private void FixedUpdate()
     {
-        playerRigidbody.linearVelocity=Vector3.zero;
-        /*
-        if (Input.GetKey(KeyCode.A) && transform.position.x >-7){
-            Move(Vector2.left);
-        }
-       if(Input.GetKey(KeyCode.D) && transform.position.x < 7)
-        {
-            Move(Vector2.right);
-        }
-        */
+        playerRigidbody.linearVelocity = Vector3.zero;
+
+        
         if (Input.GetKey(KeyCode.A))
         {
             Move(Vector2.left);
@@ -42,11 +27,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Move(Vector2.right);
         }
-    }
-
-    public void IncreseScore(int amount) {
-        score += amount;
-        scoreText.text = score.ToString();
     }
 
     public IEnumerator OnTriggerStay(Collider other)
@@ -60,8 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void Move(Vector2 direction) {
-        direction.Normalize();  
+    private void Move(Vector2 direction)
+    {
+        direction.Normalize();
         Vector2 target = direction * speed;
         playerRigidbody.linearVelocity = Vector2.Lerp(playerRigidbody.linearVelocity, target, 70 * Time.deltaTime);
     }
