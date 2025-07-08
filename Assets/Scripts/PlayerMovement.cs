@@ -9,36 +9,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private int speed;
     [SerializeField] private int score;
-    [SerializeField] private int hp;
-    [SerializeField] private int hpMax;
-    [SerializeField] private int damage;
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private GameObject vatra;
+
 
     private void Start()
     {
         IncreseScore(0);
-        hpMax = 100;
-        hp = hpMax;
     }
 
     private void FixedUpdate()
     {
         playerRigidbody.linearVelocity=Vector3.zero;
-        /*
-        if (Input.GetKey(KeyCode.A) && transform.position.x >-7){
-            Move(Vector2.left);
-        }
-       if(Input.GetKey(KeyCode.D) && transform.position.x < 7)
-        {
-            Move(Vector2.right);
-        }
-        */
-        if (Input.GetKey(KeyCode.A))
+
+        if (Input.GetKey(KeyCode.D) && transform.position.x > -0.7f)
         {
             Move(Vector2.left);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A) && transform.position.x < 0.55f)
         {
             Move(Vector2.right);
         }
@@ -47,17 +34,6 @@ public class PlayerMovement : MonoBehaviour
     public void IncreseScore(int amount) {
         score += amount;
         scoreText.text = score.ToString();
-    }
-
-    public IEnumerator OnTriggerStay(Collider other)
-    {
-
-        hp -= damage;
-        scoreText.text = hp.ToString();
-        vatra.SetActive(false);
-        yield return new WaitForSeconds(2);
-        vatra.SetActive(true);
-
     }
 
     private void Move(Vector2 direction) {

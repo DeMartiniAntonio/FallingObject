@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Sphere[] prefab;
-    //[SerializeField] private Transform[] spawnRange;
+    [SerializeField] private GameObject[] prefab;
+    
 
     IEnumerator Start()
     {
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private float RandomDistanceX()
     {
-        return Random.Range(-7,8);
+        return Random.Range(-0.7f, 0.55f);
     }
 
     private void RandomSpawnPoint() {
