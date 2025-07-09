@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject scoreText;
     [SerializeField] private GameObject livesText;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject playerMovement;
     [SerializeField] private GameManager gameManager;
 
     public void Play()

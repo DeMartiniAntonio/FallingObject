@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         IncreseScore(0);
+        lives = 3;
+        counter = 0;
         livesText.text = $"Lives: {lives}";
         gameOverPanel.SetActive(false);
     }
