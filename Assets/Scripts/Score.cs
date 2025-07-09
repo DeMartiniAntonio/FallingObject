@@ -7,5 +7,4 @@ public class vjezbe1 : MonoBehaviour
     {
         score += amount;
     }
-
 }
