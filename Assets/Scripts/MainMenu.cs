@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
         livesText.SetActive(true);
         scoreText.SetActive(true);
         
+        
     }
     public void TryAgainExit()
     {

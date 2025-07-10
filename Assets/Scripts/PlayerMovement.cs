@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private AudioManager audioEffect;
 
     private void Start()
     {
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void IncreseScore(int amount) 
     {
+        audioEffect.PlaySoundEffect();
         score += amount;
         if (amount > 0)
         {
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CanIncreseLife() {
         counter++;
-        Debug.Log(counter.ToString());
+        
         if (counter >= 20)
         {
             IncreseLife();
@@ -83,8 +85,9 @@ public class PlayerMovement : MonoBehaviour
     public void DecreseLives()
     {
         lives --;
-        if (lives == 0)
+        if (lives <= 0)
         {
+            lives = 0;
             gameOverPanel.SetActive(true);
         }
         livesText.text = $"Lives: {lives}";
@@ -93,6 +96,6 @@ public class PlayerMovement : MonoBehaviour
     private void Move(Vector2 direction) {
         direction.Normalize();  
         Vector2 target = direction * speed;
-        playerRigidbody.linearVelocity = Vector2.Lerp(playerRigidbody.linearVelocity, target, 70 * Time.deltaTime);
+        playerRigidbody.linearVelocity = Vector2.Lerp(playerRigidbody.linearVelocity, target, 300 * Time.deltaTime);
     }
 }
