@@ -21,7 +21,6 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlaySoundEffect() {
-        Debug.Log("sound");
         soundEffect.Play();
     }
 }

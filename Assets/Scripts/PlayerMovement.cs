@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using Unity.Mathematics;
-using UnityEditor.SearchService;
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour

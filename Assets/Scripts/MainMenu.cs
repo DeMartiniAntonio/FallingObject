@@ -12,17 +12,23 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject scoreText;
     [SerializeField] private GameObject livesText;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject instructionsPanel;
     [SerializeField] private GameObject playerMovement;
     [SerializeField] private GameManager gameManager;
 
+
+    public void Instructions()
+    {
+        instructionsPanel.SetActive(true);
+    }
+
     public void Play()
     {
+        instructionsPanel.SetActive(false);
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         livesText.SetActive(true);
         scoreText.SetActive(true);
-        
-        
     }
     public void TryAgainExit()
     {

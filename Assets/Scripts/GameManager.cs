@@ -9,10 +9,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject mainMenuPanel;
 
-
     IEnumerator Start()
     {
-        yield return new WaitForSeconds(Random.Range(0f,1.5f));
+        yield return new WaitForSeconds(Random.Range(0.2f,1.5f));
         RandomSpawnPoint();
         yield return Start();
     }
