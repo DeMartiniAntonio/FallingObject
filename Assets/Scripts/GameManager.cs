@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private FallingObject[] prefab;
     [SerializeField] private GameObject gameOverPanel;
 
-    [SerializeField] private GameObject mainMenuPanel;
-
     IEnumerator Start()
     {
         yield return new WaitForSeconds(Random.Range(0.2f,1.5f));
@@ -23,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void RandomSpawnPoint() {
 
-        if (gameOverPanel.active == false && mainMenuPanel.active == false) {
+        if (gameOverPanel.active == false) {
             FallingObject gameObject = Instantiate(prefab[RandomIndex()], new Vector3(RandomDistanceX(), 0.95f, 0), Quaternion.identity);
             if (gameObject.name == "apple(Clone)")
             {

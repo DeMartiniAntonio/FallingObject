@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ad1b67e43f5b65d46b6309afaa02b76b
+  - enabled: 1
     path: Assets/Scenes/falling objects.unity
     guid: 5d0694d65655765418eec17120005008
   m_configObjects:

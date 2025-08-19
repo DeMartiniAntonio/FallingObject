@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Mathematics;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text livesText;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private AudioManager audioEffect;
 
     private void Start()
@@ -31,11 +31,11 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRigidbody.linearVelocity=Vector3.zero;
 
-        if (Input.GetKey(KeyCode.D) && transform.position.x > -0.7f && gameOverPanel.active == false && mainMenuPanel.active == false)
+        if (Input.GetKey(KeyCode.D) && transform.position.x > -0.7f && gameOverPanel.active == false)
         {
             Move(Vector2.left);
         }
-        if (Input.GetKey(KeyCode.A) && transform.position.x < 0.55f && gameOverPanel.active == false && mainMenuPanel.active == false)
+        if (Input.GetKey(KeyCode.A) && transform.position.x < 0.55f && gameOverPanel.active == false)
         {
             Move(Vector2.right);
         }
@@ -97,5 +97,8 @@ public class PlayerMovement : MonoBehaviour
         direction.Normalize();  
         Vector2 target = direction * speed;
         playerRigidbody.linearVelocity = Vector2.Lerp(playerRigidbody.linearVelocity, target, 300 * Time.deltaTime);
+    }
+    public void ExitGame() {
+        SceneManager.LoadScene(0);
     }
 }
